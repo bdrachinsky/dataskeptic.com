@@ -14,14 +14,13 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package.json /usr/src/app/
-RUN mkdir -p /ssl
-RUN cp ssl/* /ssl
 RUN npm install
 
 COPY . /usr/src/app
 
 EXPOSE 443 80 3000
-
+RUN mkdir /ssl
+RUN cp /usr/src/app/ssl/* /ssl
 CMD ["npm", "run", "start"]
 
 # docker build -t dataskeptic .
