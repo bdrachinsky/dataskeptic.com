@@ -14,6 +14,8 @@ WORKDIR /usr/src/app
 
 # Install app dependencies
 COPY package.json /usr/src/app/
+RUN mkdir -p /ssl
+RUN cp ssl/* /ssl
 RUN npm install
 
 COPY . /usr/src/app
