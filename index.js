@@ -20,9 +20,9 @@ const onError = (err) => {
 
 const recordingServer = require('./recordingServer').default
 const app = require('./server').default
-
+console.log('exist: ' +fs.existsSync('/ss/cert.pem'));
 if (fs.existsSync('/ssl/cert.pem')) {
-	const httpsOptions = {
+    const httpsOptions = {
 	  cert: fs.readFileSync('/ssl/cert.pem'),
 	  ca: [ fs.readFileSync('/ssl/fullchain.pem') ],
 	  key: fs.readFileSync('/ssl/privkey.pem')
