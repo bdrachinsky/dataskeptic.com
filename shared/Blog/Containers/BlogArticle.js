@@ -144,6 +144,8 @@ class BlogArticle extends Component {
         const publishedDate=  post.publish_date ||post.publishedAt
         const date = moment(publishedDate).format('MMMM D, YYYY')
 
+        const isAudio = !!post.audio;
+
         return (
             <div className="blog-article center">
 
@@ -155,6 +157,7 @@ class BlogArticle extends Component {
 
                 <div id='blog-content'>
                     <PostBodyContainer content={content}/>
+                    { isAudio && <div> <audio className='bonus-audio' src={post.audio} controls={true} /> </div> }
                 </div>
 
                 <RelatedContent items={related} />
