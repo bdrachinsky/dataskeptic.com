@@ -38,6 +38,8 @@ import Invoice                 from 'Checkout/Routes/Invoices/Invoice';
 
 import SnlImpact               from 'components/l/SnlImpact';
 
+import PlayersTests from  'PlayerV2/Containers/PlayersTests'
+
 
 function loadData() {
 	if (typeof window !== 'undefined') {
@@ -150,6 +152,9 @@ export default (
 
         <Route path="/admin" component={App}>
             <IndexRoute component={Admin}  />
+        </Route>
+        <Route path='/players' component={App}>
+            <IndexRoute component={PlayersTests}  />
         </Route>
 
         <Route path="/*" component={App} onEnter={loadData}>

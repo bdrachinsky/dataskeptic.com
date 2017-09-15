@@ -217,7 +217,7 @@ class MainView extends React.Component {
               <Header pathname={pathname} />
             </div>
             <div className="row">
-              <PlayerContainer />
+              {/*<PlayerContainer />*/}
             </div>
             {this.props.children}
             <Sidebar />
