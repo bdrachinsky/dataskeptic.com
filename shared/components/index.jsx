@@ -13,7 +13,7 @@ import { extractFolders } from '../utils/blog_utils'
 import Footer from '../Layout/Components/Footer/Footer'
 import Header from './Header'
 import Menu from './Menu'
-import PlayerContainer from '../Player'
+import PlayerContainer from '../PlayerV2/Containers/PlayerContainer'
 import Sidebar from './Sidebar'
 import Overflow from '../Layout/Components/Overflow/Overflow'
 

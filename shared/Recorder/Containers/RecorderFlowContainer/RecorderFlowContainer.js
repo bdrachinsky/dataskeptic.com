@@ -130,6 +130,7 @@ class RecorderFlowContainer extends Component {
     onInit() {
         console.log('onInit()');
 
+
         if (this.isBrowserSupportRecording()) {
             this.props.ready();
         } else {

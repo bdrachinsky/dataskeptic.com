@@ -17,6 +17,7 @@ import Loading from '../../Common/Components/Loading'
 import RelatedContent from '../Components/RelatedContent'
 import ProposeButton from '../Components/ProposeButton'
 import PostBodyContainer from './PostBodyContainer'
+import PlayerContainer from '../../PlayerV2/Containers/PlayerContainer'
 
 import {get_folders} from '../../utils/redux_loader'
 
@@ -29,7 +30,7 @@ class BlogArticle extends Component {
     }
 
     isPostFetched(props) {
-        const post = props.currentPost.toJS();
+        const post = props.currentPost;
 
         if (!post || !post.prettyname) {
             return false;
@@ -96,7 +97,7 @@ class BlogArticle extends Component {
             return <div className="loading-area"><Loading/></div>
         }
 
-        const post = currentPost.toJS();
+        const post = currentPost;
         if (post.error) {
             return (
                 <div className="blog-article center">
@@ -146,6 +147,7 @@ class BlogArticle extends Component {
 
         return (
             <div className="blog-article center">
+                <code>{JSON.stringify(post)}</code>
 
                 { isEpisode ? <LatestEpisodePlayer guid={guid} /> : null }
 
@@ -155,6 +157,7 @@ class BlogArticle extends Component {
 
                 <div id='blog-content'>
                     <PostBodyContainer content={content}/>
+                    {/*{post.audio && <PlayerContainer mp3={post.audio}/> }*/}
                 </div>
 
                 <RelatedContent items={related} />
@@ -192,7 +195,7 @@ export default connect(
         disqusUsername: state.site.getIn(['disqus_username']),
 
         isLoading: state.blogs.getIn(['postLoading']),
-        currentPost: state.blogs.getIn(['currentPost']),
+        currentPost: state.blogs.getIn(['currentPost']).toJS(),
 
         contributors: state.contributors.getIn(['list']),
     }),
